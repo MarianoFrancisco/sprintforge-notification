@@ -8,6 +8,18 @@ spring:
   application:
     name: notification
 
+  jackson:
+    property-naming-strategy: LOWER_CAMEL_CASE
+
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USER:user}
+    password: ${SMTP_PASS:password}
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
   kafka:
     bootstrap-servers: ${KAFKA_HOST:localhost}:9092
 
@@ -21,19 +33,12 @@ spring:
         spring.json.trusted.packages: "com.sprintforge.notification.*"
         spring.json.use.type.headers: false
 
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      acks: all
-      retries: 5
-      properties:
-        enable.idempotence: true
-
     listener:
       concurrency: ${KAFKA_CONCURRENCY:3}
       ack-mode: record
 
     topics:
+      email-verification-requested: ${TOPIC_EMAIL_VERIFICATION_REQUESTED:email.verification.requested}
 
     groups:
       default-group: ${spring.kafka.consumer.group-id}
@@ -43,6 +48,11 @@ logging:
     root: ${LOG_LEVEL_ROOT:INFO}
     org.hibernate.SQL: ${LOG_LEVEL_HIBERNATE_SQL:INFO}
     org.hibernate.orm.jdbc.bind: ${LOG_LEVEL_HIBERNATE_BIND:INFO}
+
+app:
+  verification:
+    base-url: ${LINK_VERIFY_PATH:http://localhost:8000}
+    endpoint: ${VERIFY_PATH:/api/v1/auth/verify-email}
 
 eureka:
   instance:
