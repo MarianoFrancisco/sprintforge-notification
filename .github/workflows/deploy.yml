@@ -19,6 +19,8 @@ jobs:
           echo "KAFKA_HOST=${{ secrets.KAFKA_HOST }}" >> $GITHUB_ENV
           echo "EUREKA_HOSTNAME=${{ secrets.EUREKA_HOSTNAME }}" >> $GITHUB_ENV
           echo "PUBLIC_HOST=${{ secrets.PUBLIC_HOST }}" >> $GITHUB_ENV
+          echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> $GITHUB_ENV
+          echo "SMTP_PASS=${{ secrets.SMTP_PASS }}" >> $GITHUB_ENV
           echo "LINK_VERIFY_PATH=${{ secrets.LINK_VERIFY_PATH }}" >> $GITHUB_ENV
 
       - name: Set up SSH
@@ -61,6 +63,8 @@ jobs:
               -e KAFKA_HOST="${KAFKA_HOST}" \
               -e EUREKA_HOSTNAME="${EUREKA_HOSTNAME}" \
               -e PUBLIC_HOST="${PUBLIC_HOST}" \
+              -e SMTP_USER="${SMTP_USER}" \
+              -e SMTP_PASS="${SMTP_PASS}" \
               -e LINK_VERIFY_PATH="${LINK_VERIFY_PATH}" \
               sprintforge-notification
           EOF
