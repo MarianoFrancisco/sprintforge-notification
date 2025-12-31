@@ -39,6 +39,7 @@ spring:
 
     topics:
       email-verification-requested: ${TOPIC_EMAIL_VERIFICATION_REQUESTED:email.verification.requested}
+      email-sprint-created: ${KAFKA_TOPIC_EMAIL_SPRINT_CREATED:email.sprint.created}
 
     groups:
       default-group: ${spring.kafka.consumer.group-id}
