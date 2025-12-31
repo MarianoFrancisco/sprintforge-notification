@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Sprint creado</title>
+</head>
+
+<body style="margin:0; padding:0; background:#f5f7fb; font-family:Arial, Helvetica, sans-serif; color:#111827;">
+<div style="display:none; max-height:0; overflow:hidden; opacity:0; mso-hide:all;">
+    Se ha creado un nuevo sprint.
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f7fb; padding:32px 12px;">
+    <tr>
+        <td align="center">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;">
+
+                <tr>
+                    <td style="padding:0 0 16px 0; text-align:center; font-size:13px; color:#6b7280;">
+                        Notificación de Sprint
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(17,24,39,0.08);">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+
+                            <tr>
+                                <td style="padding:28px 28px 8px 28px;">
+                                    <h2 style="margin:0; font-size:21px; line-height:1.3; color:#111827;">
+                                        Nuevo sprint creado
+                                    </h2>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding:0 28px 14px 28px; font-size:14px; line-height:1.6; color:#374151;">
+                                    Hola <strong th:text="${employeeName}">Nombre</strong>,
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding:0 28px 20px 28px; font-size:14px; line-height:1.7; color:#374151;">
+                                    Te informamos que se ha creado un nuevo sprint en el proyecto.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding:0 28px 24px 28px;">
+                                    <div style="background:#f9fafb; border:1px solid #eef2f7; border-radius:12px; padding:16px;">
+                                        <span style="font-size:13px; color:#6b7280;">Nombre del sprint</span>
+                                        <div style="font-size:15px; font-weight:700; color:#111827; margin-top:4px;"
+                                             th:text="${sprintName}">
+                                            Sprint Name
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border-top:1px solid #eef2f7; padding:16px 28px; font-size:12px; color:#9ca3af;">
+                                    Este correo es solo informativo.
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center; padding:14px 8px 0 8px; font-size:12px; color:#9ca3af;">
+                        © <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> SprintForge
+                    </td>
+                </tr>
+
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
