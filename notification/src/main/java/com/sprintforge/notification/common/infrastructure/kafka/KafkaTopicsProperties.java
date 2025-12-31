@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class KafkaTopicsProperties {
     private String emailVerificationRequested;
+    private String emailSprintCreated;
 }
